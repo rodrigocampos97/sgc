@@ -1,2 +1,2 @@
-# sgcc
-Sistema de Gerenciamento de Convidados de Casamento
+# sgc
+Sistema de Gerenciamento de Convidados

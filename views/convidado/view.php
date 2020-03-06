@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Convidado */
 
 $this->title = $model->nome;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Convidados'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => "Convidados", 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="convidado-view box box-primary">
@@ -28,12 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'nome',
                 [
                     'attribute' => 'classificacao',
-                    'value' => $model->classificacao0->nome,
+                    'value' => (($model->classificacao0) ? $model->classificacao0->nome : null),
                 ],
                 [
                     'attribute' => 'status',
                     'value' => (($model->status == 1 ? "Convidado" : (($model->status == 2) ? 'Convite Enviado' : (($model->status == 3) ? "Não Convidado" : (($model->status == 4) ? 'Proibido' : ''))))),
                 ],
+                'apelido'
             ]
         ]) ?>
     </div>

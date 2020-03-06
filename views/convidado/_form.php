@@ -17,6 +17,8 @@ use kartik\select2\select2;
 
         <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
 
+        <?= $form->field($model, 'apelido')->textInput(['maxlength' => true]) ?>
+
         <?= $form->field($model, 'classificacao')->widget(Select2::classname(), [
             'data' => ArrayHelper::map(\app\models\ClassificacaoConvidado::find()->orderBy('nome')->all(),'id','nome'),
             'options' => ['placeholder' => 'Selecione o tipo de convidado'],

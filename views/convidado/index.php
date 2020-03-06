@@ -25,10 +25,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['class' => 'yii\grid\SerialColumn'],
 
                 'nome',
+                'apelido',
                 [
                     'attribute' => 'classificacao',
                     'content' => function($model){
-                        return $model->classificacao0->nome;
+                        if($model->classificacao0)
+                            return $model->classificacao0->nome;
                     },
                     'filter' =>  ArrayHelper::map(\app\models\ClassificacaoConvidado::find()->orderBy('nome')->all(),'id','nome'),                    
                 ], 
@@ -39,7 +41,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     },
                     'filter' => [1 => 'Convidado', 2 => 'Convite Enviado', 3 => 'Não Convidado', 4 => 'Excluido'],
                 ],
-                ['class' => 'kartik\grid\ActionColumn'],
+                [
+                    'class' => 'kartik\grid\ActionColumn',                                            
+                ],
             ],
         ]); ?>
     </div>

@@ -31,7 +31,7 @@ class Convidado extends \yii\db\ActiveRecord
         return [
             [['classificacao'], 'integer'],
             [['nome'], 'string', 'max' => 200],
-            [['status'], 'safe'],
+            [['status', 'apelido'], 'safe'],
             [['classificacao'], 'exist', 'skipOnError' => true, 'targetClass' => ClassificacaoConvidado::className(), 'targetAttribute' => ['classificacao' => 'id']],
         ];
     }
@@ -44,7 +44,7 @@ class Convidado extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'nome' => 'Nome',
-            'classificacao' => 'Classificacao',
+            'classificacao' => 'Tipo de Convidado',
         ];
     }
 

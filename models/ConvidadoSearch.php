@@ -19,7 +19,7 @@ class ConvidadoSearch extends Convidado
     {
         return [
             [['id', 'classificacao'], 'integer'],
-            [['nome', 'status'], 'safe'],
+            [['nome', 'status', 'apelido'], 'safe'],
         ];
     }
 
@@ -61,10 +61,11 @@ class ConvidadoSearch extends Convidado
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'classificacao' => $this->classificacao,
         ]);
 
         $query->andFilterWhere(['like', 'nome', $this->nome]);
+        $query->andFilterWhere(['like', 'apelido', $this->apelido]);
+
 
         return $dataProvider;
     }

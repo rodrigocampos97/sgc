@@ -61,7 +61,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        if(!Yii::$app->user->isGuest && !Yii::$app->session->get("img")){
+            $this->actionLogout();
+        }
+        if ((Yii::$app->user->can('gerente')) || (Yii::$app->user->can('admin'))) {
+            return $this->render('index');
+        }
+
         return $this->render('index');
+        
     }
 
     /**
